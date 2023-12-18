@@ -1,0 +1,16 @@
+{
+    "slides": [
+        {
+            "src": "https://i.imgur.com/2cK1gDi.jpg",
+            "alt": "carousel image1"       
+        },
+        {
+            "src": "https://i.imgur.com/UU3D042.jpg",
+            "alt": "carousel image2"       
+        },
+        {
+            "src": "https://i.imgur.com/CueCTmX.jpg",
+            "alt": "carousel image3"       
+        }
+    ]
+}
