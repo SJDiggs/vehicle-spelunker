@@ -1,13 +1,6 @@
 import { useState, useRef } from "react";
 import {slides} from "./data/carouselData.json"
 
-// function Vehicle () {
-//     return (
-//     <h1>Vechicle Home Page</h1>
-//     )
-//   }
-  
-//   export default Vehicle;
 
 const VehicleSearchForm = () => {
     const [formData, setFormData] = useState({
@@ -17,17 +10,18 @@ const VehicleSearchForm = () => {
     });
 
     const [error,setError] = useState('')
-
     // useRef hook to set the cursor on the year field on the form in the event the user needs to re-enter a corrected year
     const yearRef = useRef(null)
   
-    
     async function handleSubmit(e) {
-        //do not refesh the page 
+        //Do not refesh the page by using preventDefault()
         e.preventDefault()
-        
-        const url =  'https://api.api-ninjas.com/v1/cars?' //use VITE_BASE_API in .env file for deploy
-        const apiKey = 'OSF00JWpkvOhNNQqNH5TsQ==MULLJ6Up8L2M25bx' // use API_KEY in .env file for deploy
+        //  ********* TESTING BELOW *********
+        // const url =  'https://api.api-ninjas.com/v1/cars?limit=2' //use VITE_BASE_API in .env file for deploy
+        // const apiKey = 'OSF00JWpkvOhNNQqNH5TsQ==MULLJ6Up8L2M25bx' // use API_KEY in .env file for deploy
+        //  *********************************
+        const url = import.meta.env.VITE_BASE_URL
+        const apiKey = import.meta.env.VITE_API_KEY
         
         //Due to API limitations we can only view vehicle years between 2015 and 2020, so we will set the year to '2015' if the user enters < 2015 or '2020' if they enter a value > 2020.  We will also check to see if that the user passed a number.
 
@@ -40,19 +34,27 @@ const VehicleSearchForm = () => {
             return;
           }
         try {
-            const response = await fetch(`${url}make=${formData.make}&model=${formData.model}&year=${yearValue}&apiKey=${apiKey}`, {
+            const response = await fetch(`${url}&make=${formData.make}&model=${formData.model}&year=${yearValue}`, {
                 method: 'GET',
                 headers: {
-                  'Content-Type': 'application/json',
+                    'X-Api-Key': apiKey
                 },
             });
       
             if (!response.ok) {
               throw new Error(`HTTP error. Status: ${response.status}`);
             }
+
+            const apiData = await response.json();
+            // console.log('API Response:', apiData);
+
+            // Check if there are no results (!apiData is falsy or the length of the data returned is zero)
+            if (!apiData || apiData.length === 0) {
+                setError('Sorry, we could not find that vehicle...');
+            } else {
+                setError(''); // Clear the error if there are results
+            }
       
-            const data = await response.json();
-            console.log('API Response:', data);
         } catch(err){
             console.log(err)
         }
@@ -60,7 +62,7 @@ const VehicleSearchForm = () => {
     
     function handleChange(e) {
         // handle will update local state
-        console.log('event is firing', e.target.name, e.target.value)
+        // console.log('event is firing', e.target.name, e.target.value)
         setFormData((prevData) => ({ ...prevData, [e.target.name]: e.target.value }));
         setError(''); // Clear any previous error when the user starts typing again
     }
