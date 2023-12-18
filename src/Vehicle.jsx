@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import {slides} from "./data/carouselData.json"
-import { useRef } from "react";
 
 // function Vehicle () {
 //     return (
@@ -33,14 +32,15 @@ const VehicleSearchForm = () => {
         //Due to API limitations we can only view vehicle years between 2015 and 2020, so we will set the year to '2015' if the user enters < 2015 or '2020' if they enter a value > 2020.  We will also check to see if that the user passed a number.
 
         const yearValue = parseInt(formData.year, 10)
+        console.log('Parsed Year Value = ', yearValue)
 
         if (isNaN(yearValue) || yearValue < 2015 || yearValue > 2020) {
             setError('Please enter a year between 2015 and 2020.');
-            yearInputRef.current.focus(); // Set focus on the year input
+            yearRef.current.focus(); // Set focus on the year input
             return;
           }
         try {
-            const response = await fetch(`${url}make=${formData.make}&model=${formData.model}&year=${yearSubmit}&apiKey=${apiKey}`, {
+            const response = await fetch(`${url}make=${formData.make}&model=${formData.model}&year=${yearValue}&apiKey=${apiKey}`, {
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json',
@@ -61,14 +61,10 @@ const VehicleSearchForm = () => {
     function handleChange(e) {
         // handle will update local state
         console.log('event is firing', e.target.name, e.target.value)
-        setFormData((prevData) => ({ ...prevData, [name]: value }));
+        setFormData((prevData) => ({ ...prevData, [e.target.name]: e.target.value }));
         setError(''); // Clear any previous error when the user starts typing again
-  };
-       
-        // setFormData({...formData, [e.target.name]: e.target.value})
-    
-    
     }
+
     //  name attribute in form -> ties  to the properties in state (will connect to the Schema)
     return (
     <div>
