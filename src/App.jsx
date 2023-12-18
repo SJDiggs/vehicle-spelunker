@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
 //Components
 import Header from './Header.jsx'
 
@@ -9,6 +9,7 @@ import VehicleDetails from './VehicleDetails.jsx'
 
 
 import './App.css'
+import { Carousel } from 'react-responsive-carousel'
 
 function App() {
 
@@ -20,8 +21,8 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Vehicle />} />
-            <Route path="/details/" element={<VehicleDetails />} />
-            {/* <Route path="/details/:id" element={<VehicleDetails />} /> */}
+            {/* <Route path="/details" element={<VehicleDetails />} /> */}
+            <Route path="/details" element={<VehicleDetailsWrapper />} />
           </Routes>
         </main>;
       </div>
@@ -29,4 +30,12 @@ function App() {
   );
 }
 
-export default App
+// Wrap VehicleDetails with a wrapper component to access location state
+const VehicleDetailsWrapper = () => {
+  const location = useLocation();
+  const apiData = location.state ? location.state.apiData : null;
+
+  return <VehicleDetails apiData={apiData} />;
+};
+
+export default App;
