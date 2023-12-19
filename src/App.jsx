@@ -2,14 +2,16 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
 //Components
 import Header from './Header.jsx'
+// import { Carousel } from './Carousel.jsx'
+// import {slides} from "./data/carouselData.json"
 
 //Pages
 import Vehicle from './vehicle.jsx'
 import VehicleDetails from './VehicleDetails.jsx'
 
-
 import './App.css'
-import { Carousel } from 'react-responsive-carousel'
+import SlideShow from './components/SlideShow.jsx'
+
 
 function App() {
 
@@ -17,13 +19,15 @@ function App() {
     <>
       <div className = "App">
         <Header />
-      
+       
         <main>
           <Routes>
             <Route path="/" element={<Vehicle />} />
             {/* <Route path="/details" element={<VehicleDetails />} /> */}
             <Route path="/details" element={<VehicleDetailsWrapper />} />
           </Routes>
+          <SlideShow />
+          {/* <Carousel data={slides} /> */}
         </main>;
       </div>
     </>

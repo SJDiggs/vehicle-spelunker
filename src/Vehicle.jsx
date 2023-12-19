@@ -14,7 +14,7 @@ const VehicleSearchForm = () => {
     const [error,setError] = useState('')
     const [apiDataObj, setApiDataObj] = useState(null)
 
-    // useRef hook to set the cursor on the year field on the form in the event the user needs to re-enter a corrected year
+    // useRef hook to set the cursor on the year field in the event the user needs to re-enter a correct year
     const yearRef = useRef(null)
     const navigate = useNavigate()
   
@@ -74,35 +74,35 @@ const VehicleSearchForm = () => {
     // render a visually appealing form to the user levering tailwind CSS styling.  When in focus each field will have a colored border so a better UX.
     return (
     
-    <div className="max-w-md mx-auto mt-8 p-6 bg-zinc-600 rounded-md shadow-md">
-  <form onSubmit={handleSubmit} className="space-y-4">
-    <div>
-      <label htmlFor="make" className="block text-sm font-medium text-slate-950">
-        Vehicle Make:
-      </label>
-      <input
-        type="text"
-        id="make"
-        name="make"
-        value={formData.make}
-        onChange={handleChange}
-        className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring focus:border-blue-400"
-      />
-    </div>
+        <div className="max-w-md mx-auto mt-8 p-6 bg-zinc-600 rounded-md shadow-md">
+            <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                    <label htmlFor="make" className="block text-sm font-medium text-slate-950">
+                     Vehicle Make:
+                     </label>
+                     <input
+                        type="text"
+                        id="make"
+                        name="make"
+                        value={formData.make}
+                        onChange={handleChange}
+                        className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring focus:border-blue-400"
+                    />
+                </div>
 
-    <div>
-      <label htmlFor="model" className="block text-sm font-medium text-slate-950">
-        Vehicle Model:
-      </label>
-      <input
-        type="text"
-        id="model"
-        name="model"
-        value={formData.model}
-        onChange={handleChange}
-        className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring focus:border-blue-400"
-      />
-    </div>
+                <div>
+                    <label htmlFor="model" className="block text-sm font-medium text-slate-950">
+                    Vehicle Model:
+                    </label>
+                    <input
+                        type="text"
+                        id="model"
+                        name="model"
+                        value={formData.model}
+                        onChange={handleChange}
+                        className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring focus:border-blue-400"
+                    />
+                </div>
 
     <div>
       <label htmlFor="year" className="block text-sm font-medium text-slate-950">
@@ -122,9 +122,13 @@ const VehicleSearchForm = () => {
     <div className="text-center">
       <button
         type="submit"
-        className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+        // className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
       >
-        Search
+        <img
+        src={'/SearchButton1.png'}
+        alt="Search"
+        className="h-25 w-60 mr-2" // Adjust the size and margin as needed
+    />
       </button>
     </div>
   </form>

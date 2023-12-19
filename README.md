@@ -30,7 +30,7 @@ Welcome to the Wheely Smart! App.  The core application is a lightweight, simple
 
 # Acknowledgments/References/Source Material:
 
-- Carousel feature - YT Video Creator
+- Slider feature - Omar Benseddik / tinloof.com/blog
 - Stack Overflow - CSS Tailwind formatting - various contributors
 - Primary API - api-ninjas.com
 
