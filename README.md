@@ -30,8 +30,9 @@ Welcome to the Wheely Smart! App.  The core application is a lightweight, simple
 
 # Acknowledgments/References/Source Material:
 
+- Search button image - Sean DiGiambattista
 - Slider feature - Omar Benseddik / tinloof.com/blog
-- Stack Overflow - CSS Tailwind formatting - various contributors
+- CSS Tailwind formatting - various StackOverflow contributors
 - Primary API - api-ninjas.com
 
 
