@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 
 const VehicleDetails = ({ apiData }) => {
     console.log('API data passed to details:', apiData);
