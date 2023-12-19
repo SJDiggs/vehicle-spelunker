@@ -39,3 +39,7 @@ Welcome to the Wheely Smart! App.  The core application is a lightweight, simple
 
 - Ability to search for matching vehicles for sale in the users area after user receives the results
 - Carousel restyling
+
+# Known Issues:
+
+- NA
