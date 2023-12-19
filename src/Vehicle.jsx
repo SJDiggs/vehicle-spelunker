@@ -71,45 +71,67 @@ const VehicleSearchForm = () => {
         setError(''); // Clear any previous error when the user starts typing again
     }
 
-    //  name attribute in form -> ties  to the properties in state (will connect to the Schema)
+    // render a visually appealing form to the user levering tailwind CSS styling.  When in focus each field will have a colored border so a better UX.
     return (
+    
+    <div className="max-w-md mx-auto mt-8 p-6 bg-zinc-600 rounded-md shadow-md">
+  <form onSubmit={handleSubmit} className="space-y-4">
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Vehicle Make:
-          <input
-            type="text"
-            name="make"
-            value={formData.make}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Vehicle Model:
-          <input
-            type="text"
-            name="model"
-            value={formData.model}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Vehicle Year:
-          <input
-            type="text"
-            name="year"
-            value={formData.year}
-            onChange={handleChange}
-            ref={yearRef}
-          />
-        </label>
-        <br />
-        <button type="submit">Search</button>
-      </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <label htmlFor="make" className="block text-sm font-medium text-slate-950">
+        Vehicle Make:
+      </label>
+      <input
+        type="text"
+        id="make"
+        name="make"
+        value={formData.make}
+        onChange={handleChange}
+        className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring focus:border-blue-400"
+      />
     </div>
+
+    <div>
+      <label htmlFor="model" className="block text-sm font-medium text-slate-950">
+        Vehicle Model:
+      </label>
+      <input
+        type="text"
+        id="model"
+        name="model"
+        value={formData.model}
+        onChange={handleChange}
+        className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:ring focus:border-blue-400"
+      />
+    </div>
+
+    <div>
+      <label htmlFor="year" className="block text-sm font-medium text-slate-950">
+        Vehicle Year:
+      </label>
+      <input
+        type="text"
+        id="year"
+        name="year"
+        value={formData.year}
+        onChange={handleChange}
+        ref={yearRef}
+        className="mt-1 p-2 border border-gray-300 rounded-md w-1/2 focus:outline-none focus:ring focus:border-blue-400"
+      />
+    </div>
+
+    <div className="text-center">
+      <button
+        type="submit"
+        className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+      >
+        Search
+      </button>
+    </div>
+  </form>
+
+  {error && <p className="mt-4 text-red-500">{error}</p>}
+</div>
+
   );
 };
     
