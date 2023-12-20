@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import './VehicleDetails.css'
 
 const VehicleDetails = ({ apiData }) => {
     console.log('API data passed to details:', apiData);
@@ -15,8 +16,8 @@ const VehicleDetails = ({ apiData }) => {
 // The TableRow component controls the visual aesthetics of the generated results table(label and api returned value)
     const TableRow = ({ label, value }) => (
         <tr>
-            <td className="border border-gray-300 p-2 font-semibold text-left text-slate-900">{label}</td>
-             <td className="border border-gray-300 p-2 font-semibold text-slate-900 uppercase">{value}</td>
+            <td className="border border-gray-300 p-2 font-semibold text-left text-sm text-slate-950">{label}</td>
+             <td className="border border-gray-300 p-2 font-semibold text-sm text-slate-950 uppercase">{value}</td>
         </tr>
     )
 
@@ -50,32 +51,32 @@ const VehicleDetails = ({ apiData }) => {
             </div>
           ))}
         </>
+        
       ) : (
         <p className="text-red-500">No data available</p>
       )}
 
       {/* Buttons need to be centered below the tables - css? */}
 
-      {/* <div className="flex justify-center mt-4"> */}
+      {/* <div className="flex justify-center mt-80"> */}
       <div className="action-buttons">
+        
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={handleFindMeClick}
-        >
-          Find Me
-        </button>
-        <button
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-6 px-2 rounded"
           onClick={handleSearchAgainClick}
         >
           Search Again
         </button>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-6 px-6 rounded"
+          onClick={handleFindMeClick}
+        >
+          Find Me
+        </button>
       </div>
     </div>
-  );
+    // </div>
+  )
 };
-
-
-
 
   export default VehicleDetails;
