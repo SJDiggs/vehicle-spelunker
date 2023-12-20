@@ -25,7 +25,7 @@ useEffect(() => { getAboutData() } , []);
 // define a function that will return the JSX needed once we get the data
 const loaded = () => (
   
-    <div className="about-section bg-gray-500 py-10 mt-4">
+    <div className="about-section bg-gray-500 py-10 mt-4 rounded-md">
         <div className="container mx-auto flex flex-col items-center">
             <div className="about-content text-center mb-8">
                 <p className="text-lg text-gray-900">{about.aboutContent}</p>
