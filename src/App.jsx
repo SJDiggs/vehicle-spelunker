@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import Header from './Header.jsx'
 
 //Pages
-import Vehicle from './vehicle.jsx'
+import Vehicle from './Vehicle.jsx'
 import VehicleDetails from './VehicleDetails.jsx'
 import About from './About.jsx'
 
