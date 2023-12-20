@@ -24,6 +24,7 @@ const VehicleSearchForm = () => {
         e.preventDefault()
 
         const url = import.meta.env.VITE_BASE_URL
+         console.log("API URL=", url)
         const apiKey = import.meta.env.VITE_API_KEY
         
         //Due to API limitations we can only view vehicle years between 2015 and 2020, so we will set the year to '2015' if the user enters < 2015 or '2020' if they enter a value > 2020.  We will also check to see if that the user passed a number.
