@@ -7,7 +7,7 @@ function Header() {
 return (
     
         <header className="relative" id="header-banner">
-            <img src='src/images/Header_Banner1.png' alt="header-image" className="w-full h-40 object-cover" />
+            <img src='Header_Banner1.png' alt="header-image" className="w-full h-40 object-cover" />
             <div className="absolute inset-y-0 left-0 flex flex-col items-start justify-center text-white text-shadow-lg pl-8">
                 <Link to="/">
                     <h1 className="text-4xl font-bold text-zinc-400 animate-zoom-in-once">
