@@ -15,7 +15,7 @@ Welcome to the Wheely Smart! App.  The core application is a lightweight, simple
 
 # Production Deployment Link:
 
-- [Here](insert netlify.app link)
+- [Here](https://funny-chaja-6b50eb.netlify.app/)
 
 
 # Technologies used:
@@ -32,8 +32,9 @@ Welcome to the Wheely Smart! App.  The core application is a lightweight, simple
 
 - Search button image - Sean DiGiambattista
 - Slider feature - Omar Benseddik / tinloof.com/blog
-- CSS Tailwind formatting - various StackOverflow contributors
+- CSS Tailwind formatting - Brian Krabec (GA) + various StackOverflow contributors
 - Primary API - api-ninjas.com
+- Listings API - auto.dev
 
 
 # Future Enhancements:
