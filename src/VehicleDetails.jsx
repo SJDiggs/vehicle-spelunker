@@ -40,11 +40,13 @@ const VehicleDetails = ({ apiData }) => {
                     <TableRow label="Model" value={vehicle.model} />
                     <TableRow label="Year" value={vehicle.year} />
                     <TableRow label="Vehicle Segment" value={vehicle.class} />
+                    <TableRow label="Fuel Type" value={vehicle.fuel_type} />
                     <TableRow label="City MPG" value={vehicle.city_mpg} />
                     <TableRow label="Highway MPG" value={vehicle.highway_mpg} />
                     <TableRow label="Combined MPG" value={vehicle.combination_mpg} />
                     <TableRow label="Transmission" value={vehicle.transmission} />
                     <TableRow label="Drivetrain" value={vehicle.drive} />
+
                   </tbody>
                 </table>
               </div>
