@@ -23,10 +23,8 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Vehicle />} />
-            {/* <Route path="/details" element={<VehicleDetails />} /> */}
             <Route path="/details" element={<VehicleDetailsWrapper />} />
           </Routes>
-          <SlideShow />
           {/* <Carousel data={slides} /> */}
         </main>;
       </div>
