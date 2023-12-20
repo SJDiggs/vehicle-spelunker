@@ -6,6 +6,7 @@ import Header from './Header.jsx'
 //Pages
 import Vehicle from './vehicle.jsx'
 import VehicleDetails from './VehicleDetails.jsx'
+import About from './About.jsx'
 
 import './App.css'
 
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Vehicle />} />
             <Route path="/details" element={<VehicleDetailsWrapper />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </main>;
       </div>
