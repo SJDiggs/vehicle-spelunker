@@ -1,13 +1,24 @@
-// import React from "react";
+import { useNavigate } from 'react-router-dom'
 
 const VehicleDetails = ({ apiData }) => {
     console.log('API data passed to details:', apiData);
+    const navigate = useNavigate()
+
     const handleFindMeClick = () => {
         alert("Find Me Clicked")
     }
     const handleSearchAgainClick = () => {
-        alert("Search Again Clicked")
+        // alert("Search Again Clicked")
+        navigate('/')
     }
+
+// The TableRow component controls the visual aesthetics of the generated results table(label and api returned value)
+    const TableRow = ({ label, value }) => (
+        <tr>
+            <td className="border border-gray-300 p-2 font-semibold text-left text-slate-900">{label}</td>
+             <td className="border border-gray-300 p-2 font-semibold text-slate-900 uppercase">{value}</td>
+        </tr>
+    )
 
     return (
     <div className="flex flex-wrap justify-center gap-7">
@@ -64,12 +75,7 @@ const VehicleDetails = ({ apiData }) => {
   );
 };
 
-const TableRow = ({ label, value }) => (
-  <tr>
-    <td className="border border-gray-300 p-2 font-semibold text-left text-slate-950">{label}</td>
-    <td className="border border-gray-300 p-2 font-semibold text-slate-950">{value}</td>
-  </tr>
-);
+
 
 
   export default VehicleDetails;

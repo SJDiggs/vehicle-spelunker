@@ -2,15 +2,12 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
 //Components
 import Header from './Header.jsx'
-// import { Carousel } from './Carousel.jsx'
-// import {slides} from "./data/carouselData.json"
 
 //Pages
 import Vehicle from './vehicle.jsx'
 import VehicleDetails from './VehicleDetails.jsx'
 
 import './App.css'
-import SlideShow from './components/SlideShow.jsx'
 
 
 function App() {
@@ -25,7 +22,6 @@ function App() {
             <Route path="/" element={<Vehicle />} />
             <Route path="/details" element={<VehicleDetailsWrapper />} />
           </Routes>
-          {/* <Carousel data={slides} /> */}
         </main>;
       </div>
     </>

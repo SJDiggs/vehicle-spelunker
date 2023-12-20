@@ -72,7 +72,7 @@ const VehicleSearchForm = () => {
         setError(''); // Clear any previous error when the user starts typing again
     }
 
-    // render a visually appealing form to the user levering tailwind CSS styling.  When in focus each field will have a colored border so a better UX.
+    // render a visually appealing form to the user levering tailwind CSS styling.  When in focus each field will have a colored border providing a better UX.
     return (
     <div>
         <div className="max-w-md mx-auto mt-8 p-6 bg-zinc-600 rounded-md shadow-md">
