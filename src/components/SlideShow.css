@@ -1,14 +1,14 @@
 .slideshow {
     margin: 0 auto;
     overflow: hidden;
-    max-width: 800px;
+    max-width: 600px;
     padding-top: 40px;
   }
 
-  .slide {
+  .slide, #slide-image {
     height: 200px;
     width: 100%;
-    border-radius: 40px;
+    border-radius: 5px;
     display: inline-block;
   }
 
@@ -30,5 +30,5 @@
     background-color: #c4c4c4;
   }
   .slideshowDot.active {
-    background-color: #6a0dad;
+    background-color: #666c74;
   }
