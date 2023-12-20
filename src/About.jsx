@@ -25,25 +25,31 @@ useEffect(() => { getAboutData() } , []);
 // define a function that will return the JSX needed once we get the data
 const loaded = () => (
   
-  <div className="about-section">
-   
-    <div className="about-content">
-    <p>{about.aboutContent}</p>
-    </div>
+    <div className="about-section bg-gray-500 py-10 mt-4">
+        <div className="container mx-auto flex flex-col items-center">
+            <div className="about-content text-center mb-8">
+                <p className="text-lg text-gray-900">{about.aboutContent}</p>
+            </div>
 
-    <div className="about-results">
-    <p>{about.aboutResults}</p>
-    </div>
+        <div className="about-results bg-gray-400 p-6 rounded-md shadow-md mb-8">
+            <p className="text-md text-gray-900">{about.aboutResults}</p>
+        </div>
 
-    <div className="about-email">
-      {/* <a href="mailto:stevediggs70@gmail.com" target="_blank"> Click Here To Email Me!</a> */}
-      <a href={about.email} target="_blank"> Email the dev team!</a>
+        <div className="about-email">
+          <a
+            href={`mailto:${about.email}`}
+            target="_blank"
+            className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+          >
+            Email the dev team!
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
 );
 
-// if data arrives return the result of loaded, if not, an h1 that says loading
-return about ? loaded() : <h1>Loading...</h1>;
+    // if data arrives return the result of loaded, if not, an h1 that says loading
+    return about ? loaded() : <h1>Loading...</h1>;
 }
 
 export default About;

@@ -1,5 +1,5 @@
 {
-    "devEmail": "mailto:stevediggs70@gmail.com",
+    "devEmail": "stevediggs70@gmail.com",
     "aboutContent": "Wheely Smart is a lightweight vehicle research application to help car buyers research their next vehicle purchase.  You can initates a research query by entering 3 unique parameters: Type in the Make (i.e. Ford, Tesla, Toyata, etc), the Model (i.e. Mustang, Model 3, Camry, etc) and the vehicle Year (currently can only research between 2015 and 2020), and you will be presented with several matching vehicles, provided they were manufactured.",
     "aboutResults": "If a vehicle is found, you are presented some very useful information about the vehicle, such as: Vehicle Segment, City MPG, Highway MPG, Combined MPG, Transmission, Drivetrain and other relevant information."
 }

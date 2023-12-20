@@ -16,8 +16,8 @@ return (
                     </h1>
                 </Link>
                 <nav className="flex items-start mt-14 text-zinc-600">
-                    <Link to="/" className="text-xl mr-2">HOME</Link>
-                    <Link to="/about" className="text-xl ml-2">ABOUT</Link>
+                    <Link to="/" className="text-lg mr-2">HOME</Link>
+                    <Link to="/about" className="text-lg ml-2">ABOUT</Link>
                 </nav>
             </div>
         </header>
