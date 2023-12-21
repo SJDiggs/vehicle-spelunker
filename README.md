@@ -15,7 +15,7 @@ Welcome to the Wheely Smart! App.  The core application is a lightweight, simple
 
 # Production Deployment Link:
 
-- [Here](https://funny-chaja-6b50eb.netlify.app/)
+- [Here](https://wheely-smart.netlify.app/)
 
 
 # Technologies used:

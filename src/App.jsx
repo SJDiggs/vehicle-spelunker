@@ -7,6 +7,7 @@ import Header from './Header.jsx'
 import Vehicle from './Vehicle.jsx'
 import VehicleDetails from './VehicleDetails.jsx'
 import About from './About.jsx'
+import VehicleListings from './VehicleListings.jsx'
 
 import './App.css'
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={<Vehicle />} />
             <Route path="/details" element={<VehicleDetailsWrapper />} />
             <Route path="/about" element={<About />} />
+            <Route path="/listings" element={<VehicleListings/>} />
           </Routes>
         </main>;
       </div>

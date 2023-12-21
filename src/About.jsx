@@ -37,7 +37,7 @@ const loaded = () => (
 
         <div className="about-email">
           <a
-            href={`mailto:${about.email}`}
+            href={`mailto:${about.devEmail}`}
             target="_blank"
             className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
           >
