@@ -1,13 +1,51 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './VehicleDetails.css'
 
 const VehicleDetails = ({ apiData }) => {
     console.log('API data passed to details:', apiData);
     const navigate = useNavigate()
+    const [listingsData, setListingsData] = useState (null)
 
-    const handleFindMeClick = () => {
-        alert("Find Me Clicked")
+    const handleFindMeClick = async (make, model, year) => {
+        
+        // The listings api will provide accurate results only if the first letter in make and model is capitalized
+        const capMake = make.charAt(0).toUpperCase() + make.slice(1);
+        const capModel = model.charAt(0).toUpperCase() + model.slice(1);
+
+        const url = import.meta.env.VITE_LISTINGS_URL
+        const apiKey = import.meta.env.VITE_LISTINGS_API_KEY
+        console.log('Listings URL: ', url)
+
+        try {
+            const response = await fetch(`${url}apiKey=${apiKey}&make=${capMake}&model=${capModel}&year_min=${year}&year_max=${year}`)
+            console.log('response fetch link', response)
+            // {
+            //     method: 'GET',
+            //     headers: {
+            //         'Authorization': `Bearer ${apiKey}`
+            //     },
+            // });
+      
+            if (!response.ok) {
+              throw new Error(`HTTP error. Status: ${response.status}`);
+            } 
+            const vehicleListingsData = await response.json();
+            console.log('Listings API Response:', vehicleListingsData);
+
+            if (!vehicleListingsData|| vehicleListingsData.length === 0) {
+                // setError('Sorry, we could not find any vehicles for sale.');
+                alert('No vehicles found for sale')
+            } else {
+                setListingsData(vehicleListingsData) 
+                // setError(''); // Clear the error if there are results
+                navigate('/listings', { state: { vehicleListingsData } }) //navigate to the listings page to see the API results
+            }
+        }catch (err) {
+            console.log(err)
+        }
     }
+
     const handleSearchAgainClick = () => {
         // alert("Search Again Clicked")
         navigate('/')
@@ -46,38 +84,38 @@ const VehicleDetails = ({ apiData }) => {
                     <TableRow label="Combined MPG" value={vehicle.combination_mpg} />
                     <TableRow label="Transmission" value={vehicle.transmission} />
                     <TableRow label="Drivetrain" value={vehicle.drive} />
-
                   </tbody>
                 </table>
               </div>
             </div>
           ))}
         </>
-        
       ) : (
         <p className="text-red-500">No data available</p>
       )}
 
-      {/* Buttons need to be centered below the tables - css? */}
-
-      {/* <div className="flex justify-center mt-80"> */}
       <div className="action-buttons">
         
         <button
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-6 px-2 rounded"
           onClick={handleSearchAgainClick}
         >
-          Search Again
+            <img
+            src={'/searchAgain_button.png'}
+            alt="Search Again"
+            className="h-28 w-32 mr-2"
+            />
         </button>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-6 px-6 rounded"
-          onClick={handleFindMeClick}
+          onClick={() => handleFindMeClick(apiData[0].make, apiData[0].model, apiData[0].year)}
         >
-          Find Me
+        <img
+            src={'/findMe_button.png'}
+            alt="Search Again"
+            className="h-28 w-32 mr-2"
+            />
         </button>
       </div>
     </div>
-    // </div>
   )
 };
 
