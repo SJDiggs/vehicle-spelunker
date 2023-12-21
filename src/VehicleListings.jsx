@@ -19,6 +19,11 @@ const VehicleListings = () => {
         </tr>
         )
 
+    // const handleClick = (listing) => {
+    //     console.log('Extrenal Link: ', listing.clickoffUrl)
+    //     window.location.replace(listing.clickoffUrl)
+    // }
+
         return (
             <div>
               <h1 className="text-2xl font-bold mb-4">We found these vehicles for sale...</h1>

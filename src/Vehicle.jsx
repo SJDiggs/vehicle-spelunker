@@ -18,7 +18,6 @@ const VehicleSearchForm = () => {
     const navigate = useNavigate()
   
     async function handleSubmit(e) {
-        //Do not refesh the page by using preventDefault()
         e.preventDefault()
 
         const url = import.meta.env.VITE_BASE_URL

@@ -49,7 +49,6 @@ const VehicleDetails = ({ apiData }) => {
         navigate('/')
     }
 
-// The TableRow component controls the visual aesthetics of the generated results table(label and api returned value)
     const TableRow = ({ label, value }) => (
         <tr>
             <td className="border border-gray-300 p-2 font-semibold text-left text-sm text-slate-950">{label}</td>

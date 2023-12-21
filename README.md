@@ -32,7 +32,7 @@ From there, the user can initiate a search to find vehicles for sale that match 
 # Future Enhancements:
 
 - Ability to search for matching vehicles for sale within a selected radius of the users area 
-- Carousel restyling
+- External Link to vehicle sale site
 
 # Known Issues:
 
