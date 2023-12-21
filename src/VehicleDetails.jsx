@@ -8,7 +8,7 @@ const VehicleDetails = ({ apiData }) => {
     const [listingsData, setListingsData] = useState (null)
 
     const handleFindMeClick = async (make, model, year) => {
-        
+
         // The listings api will provide accurate results only if the first letter in make and model is capitalized
         const capMake = make.charAt(0).toUpperCase() + make.slice(1);
         const capModel = model.charAt(0).toUpperCase() + model.slice(1);
@@ -20,26 +20,24 @@ const VehicleDetails = ({ apiData }) => {
         try {
             const response = await fetch(`${url}apiKey=${apiKey}&make=${capMake}&model=${capModel}&year_min=${year}&year_max=${year}`)
             console.log('response fetch link', response)
-            // {
-            //     method: 'GET',
-            //     headers: {
-            //         'Authorization': `Bearer ${apiKey}`
-            //     },
-            // });
       
             if (!response.ok) {
               throw new Error(`HTTP error. Status: ${response.status}`);
             } 
             const vehicleListingsData = await response.json();
             console.log('Listings API Response:', vehicleListingsData);
+            //Grab only the records array from the API as it contains the vehicle info
+            const vehicleRecordsArray = vehicleListingsData.records
+            console.log('Listing Records Array:', vehicleRecordsArray);
 
             if (!vehicleListingsData|| vehicleListingsData.length === 0) {
                 // setError('Sorry, we could not find any vehicles for sale.');
                 alert('No vehicles found for sale')
             } else {
-                setListingsData(vehicleListingsData) 
+                // setListingsData(vehicleListingsData) 
+                setListingsData(vehicleRecordsArray)
                 // setError(''); // Clear the error if there are results
-                navigate('/listings', { state: { vehicleListingsData } }) //navigate to the listings page to see the API results
+                navigate('/listings', { state: { vehicleRecordsArray} }) //navigate to the listings page to see the API results
             }
         }catch (err) {
             console.log(err)
