@@ -1,16 +1,8 @@
 # Wheely Smart!
 
-Welcome to the Wheely Smart! App.  The core application is a lightweight, simple to use UI/UX that allows a user to seacrh for a vehcile by entering 3 input parameters; the vehicle make (ie. Ford, Toyota, etc), vehicle model (ie. Mustang, Prius) and vehicle year (current range 2015-2020), which when submitted will present the user with up to 2 matching vechcle trim level,s and relevant vehicle information including:
-    - Model Name
-    - Manufacturer
-    - Average MPG
-    - MPG City
-    - MPG Highway
-    - Fuel Type
-    - Transmission Type
-    - Engine Type
-    - Drivetrain (ie. all-wheel drive, fwd, rwd, etc)
-    and much more...
+Welcome to the Wheely Smart! App.  The core application is a lightweight, simple to use UI/UX that allows a user to reseacrh any vehicle by entering 3 input parameters; vehicle make (ie. Ford, Toyota, etc), vehicle model (ie. Mustang, Prius) and vehicle year (current range 2015-2020), which when submitted will present the user with up to 2 matching vechcles and their relevant vehicle information including.
+
+From there, the user can initiate a search to find vehicles for sale that match the make/model/year they are researching.  The result of ther search provides the user with a picture of the vehicle, the location of the vehicle, the price, color, mileage and other relevant information.
 
 
 # Production Deployment Link:
@@ -30,16 +22,16 @@ Welcome to the Wheely Smart! App.  The core application is a lightweight, simple
 
 # Acknowledgments/References/Source Material:
 
-- Search button image - Sean DiGiambattista
-- Slider feature - Omar Benseddik / tinloof.com/blog
-- CSS Tailwind formatting - Brian Krabec (GA) + various StackOverflow contributors
+- Button images - Sean DiGiambattista
+- Slideshow feature - Omar Benseddik / tinloof.com/blog
+- TailwindCSS formatting - Brian Krabec (GA) + various StackOverflow contributors
 - Primary API - api-ninjas.com
 - Listings API - auto.dev
 
 
 # Future Enhancements:
 
-- Ability to search for matching vehicles for sale in the users area after user receives the results
+- Ability to search for matching vehicles for sale within a selected radius of the users area 
 - Carousel restyling
 
 # Known Issues:

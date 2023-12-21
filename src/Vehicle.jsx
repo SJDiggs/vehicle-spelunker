@@ -1,7 +1,5 @@
 import { useState, useRef } from "react";
 import { useNavigate } from 'react-router-dom'
-// import VehicleDetails from "./VehicleDetails";
-// import './components/SlideShow.jsx'
 import SlideShow from "./components/SlideShow.jsx";
 
 
@@ -30,7 +28,6 @@ const VehicleSearchForm = () => {
         //Due to API limitations we can only view vehicle years between 2015 and 2020, so we will set the year to '2015' if the user enters < 2015 or '2020' if they enter a value > 2020.  We will also check to see if that the user passed a number.
 
         const yearValue = parseInt(formData.year, 10)
-        console.log('Parsed Year Value = ', yearValue)
 
         if (isNaN(yearValue) || yearValue < 2015 || yearValue > 2020) {
             setError('Please enter a year between 2015 and 2020.');
@@ -68,12 +65,11 @@ const VehicleSearchForm = () => {
     
     function handleChange(e) {
         // handle will update local state
-        // console.log('event is firing', e.target.name, e.target.value)
         setFormData((prevData) => ({ ...prevData, [e.target.name]: e.target.value }));
         setError(''); // Clear any previous error when the user starts typing again
     }
 
-    // render a visually appealing form to the user levering tailwind CSS styling.  When in focus each field will have a colored border providing a better UX.
+    //When in focus the field will have a colored border providing a better UX.
     return (
     <div>
         <div className="max-w-md mx-auto mt-8 p-6 bg-zinc-600 rounded-md shadow-md">
@@ -128,7 +124,7 @@ const VehicleSearchForm = () => {
                     <img
                     src={'/SearchButton1.png'}
                     alt="Search"
-                    className="h-25 w-60 mr-2" // Adjust the size and margin as needed
+                    className="h-25 w-60 mr-2"
                     />
                     </button>
                 </div>
