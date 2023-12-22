@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import './VehicleDetails.css'
 
 const VehicleDetails = ({ apiData }) => {
-    console.log('API data passed to details:', apiData);
+    
     const navigate = useNavigate()
     const [listingsData, setListingsData] = useState (null)
 
@@ -25,20 +25,17 @@ const VehicleDetails = ({ apiData }) => {
 
         const url = import.meta.env.VITE_LISTINGS_URL
         const apiKey = import.meta.env.VITE_LISTINGS_API_KEY
-        // console.log('Listings URL: ', url)
 
         try {
             const response = await fetch(`${url}apiKey=${apiKey}&make=${capMake}&model=${capModel}&year_min=${year}&year_max=${year}`)
-            console.log('response fetch link', response)
       
             if (!response.ok) {
               throw new Error(`HTTP error. Status: ${response.status}`);
             } 
             const vehicleListingsData = await response.json();
-            console.log('Listings API Response:', vehicleListingsData);
+           
             //Grab only the records array from the API as it contains the vehicle info
             const vehicleRecordsArray = vehicleListingsData.records
-            console.log('Listing Records Array:', vehicleRecordsArray);
 
             if (!vehicleListingsData|| vehicleListingsData.length === 0) {
                 // setError('Sorry, we could not find any vehicles for sale.');

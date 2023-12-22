@@ -4,8 +4,6 @@ const VehicleListings = () => {
     
     const { state: { vehicleRecordsArray = [] } = {} } = useLocation()
   
-    console.log ('Data Passed to VehicleListings.jsx: ', vehicleRecordsArray)
-
     const displayedListings = Array.isArray(vehicleRecordsArray) ? vehicleRecordsArray[0] : [];
     // If the records array is empty then we don't have any cars to show - give the user a message
     if (displayedListings.length === 0) {
