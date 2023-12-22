@@ -10,7 +10,7 @@ const VehicleSearchForm = () => {
       year: '',
     });
 
-    const [error,setError] = useState('')
+    const [error, setError] = useState('')
     const [apiDataObj, setApiDataObj] = useState(null)
 
     // useRef hook to set the cursor on the year field in the event the user needs to re-enter a correct year
@@ -18,7 +18,6 @@ const VehicleSearchForm = () => {
     const navigate = useNavigate()
   
     async function handleSubmit(e) {
-        //Do not refesh the page by using preventDefault()
         e.preventDefault()
 
         const url = import.meta.env.VITE_BASE_URL
@@ -47,13 +46,13 @@ const VehicleSearchForm = () => {
             }
 
             const apiData = await response.json();
-            console.log('API Response:', apiData);
+            // console.log('API Response:', apiData);
 
             // Check if there are no results (!apiData is falsy or the length of the data returned is zero)
             if (!apiData || apiData.length === 0) {
                 setError('Sorry, we could not find that vehicle...');
             } else {
-                setApiDataObj(apiData) //if needed use slice method to return maximum of 2 objects to be used in the details page
+                setApiDataObj(apiData) 
                 setError(''); // Clear the error if there are results
                 navigate('/details', { state: { apiData } }) //navigate to the details page to see the API results
             }

@@ -8,14 +8,9 @@ function About() {
   
     // 2. create function to make api call
     const getAboutData = async () => {
-  
-      // 3a. make api call and get response
       const response = await fetch("./about.json")
-
-      // 3b. turn response into javascript object
       const data = await response.json();
 
-    // 3c. set the about state to the data
       setAbout(data);
 };
 
