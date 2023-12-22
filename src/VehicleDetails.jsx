@@ -8,14 +8,24 @@ const VehicleDetails = ({ apiData }) => {
     const [listingsData, setListingsData] = useState (null)
 
     const handleFindMeClick = async (make, model, year) => {
+        
+        // Only grab the first word in 'model' otherwise we will get false positives from the fetch
+        let fmtModel = model.split(' ')[0];
+
+        // Check for exceptions for vehicles like 'model 3', 'santa fe', etc
+        if (fmtModel.toLowerCase() === 'model' || fmtModel.toLowerCase() === 'santa') {
+            fmtModel = model; // Keep the original make for exceptions
+        } else {
+            fmtModel = fmtModel.charAt(0).toUpperCase() + fmtModel.slice(1);
+        }
 
         // The listings api will provide accurate results only if the first letter in make and model is capitalized
         const capMake = make.charAt(0).toUpperCase() + make.slice(1);
-        const capModel = model.charAt(0).toUpperCase() + model.slice(1);
+        const capModel = fmtModel.charAt(0).toUpperCase() + fmtModel.slice(1);
 
         const url = import.meta.env.VITE_LISTINGS_URL
         const apiKey = import.meta.env.VITE_LISTINGS_API_KEY
-        console.log('Listings URL: ', url)
+        // console.log('Listings URL: ', url)
 
         try {
             const response = await fetch(`${url}apiKey=${apiKey}&make=${capMake}&model=${capModel}&year_min=${year}&year_max=${year}`)
@@ -34,9 +44,7 @@ const VehicleDetails = ({ apiData }) => {
                 // setError('Sorry, we could not find any vehicles for sale.');
                 alert('No vehicles found for sale')
             } else {
-                // setListingsData(vehicleListingsData) 
                 setListingsData(vehicleRecordsArray)
-                // setError(''); // Clear the error if there are results
                 navigate('/listings', { state: { vehicleRecordsArray} }) //navigate to the listings page to see the API results
             }
         }catch (err) {
@@ -45,7 +53,6 @@ const VehicleDetails = ({ apiData }) => {
     }
 
     const handleSearchAgainClick = () => {
-        // alert("Search Again Clicked")
         navigate('/')
     }
 

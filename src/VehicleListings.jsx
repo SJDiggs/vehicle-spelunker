@@ -19,10 +19,11 @@ const VehicleListings = () => {
         </tr>
         )
 
-    // const handleClick = (listing) => {
-    //     console.log('Extrenal Link: ', listing.clickoffUrl)
-    //     window.location.replace(listing.clickoffUrl)
-    // }
+        const handleClick = (listing) => {
+            // Add "https://" to the beginning of the URL otherwise the react url will be prefixed to the external link
+            const externalUrl = `https://${listing.clickoffUrl}`;
+            window.open(externalUrl);
+        }
 
         return (
             <div>
@@ -44,13 +45,12 @@ const VehicleListings = () => {
                         <TableRow label="State" value={listing.state} />
                       </tbody>
                     </table>
-                    <div className="select-button mt-4">
+                    <div className="select-button mt-4 flex justify-center items-center">
                         <a
                             className="flex items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-                            href={listing.clickoffUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                            href="#"
+                            onClick={() => handleClick(listing)}
+                         >
                         <img src="/car-keys.png" alt="Yes, Please!" className="h-6 w-8 mr-2" />
                         Take A Closer Look!
                       </a>
